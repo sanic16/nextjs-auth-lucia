@@ -1,0 +1,42 @@
+.register {
+  width: var(--form-width);
+  margin-inline: auto;
+  height: calc(100vh - 5rem);
+  display: grid;
+  place-items: center;
+}
+
+.register h2 {
+  margin-bottom: 2rem;
+}
+
+.register small {
+  display: block;
+  margin-top: 1.5rem;
+}
+
+.register small a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.register form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form__error-message {
+  background-color: var(--red-color);
+  color: var(--white-color);
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-1);
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  .register {
+    width: 100%;
+  }
+}

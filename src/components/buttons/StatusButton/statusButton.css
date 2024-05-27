@@ -1,0 +1,10 @@
+.auth__btn {
+  background-color: transparent;
+  color: #fff;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: goldenrod;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-1);
+  cursor: pointer;
+}

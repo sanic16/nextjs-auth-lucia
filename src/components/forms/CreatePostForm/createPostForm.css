@@ -1,0 +1,25 @@
+.post__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.post__file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post__thumbnail {
+  width: 10rem;
+  aspect-ratio: 16/13;
+  border-radius: var(--border-radius-2);
+  overflow: hidden;
+}
+
+.quill__editor {
+  overflow: scroll;
+  height: 10rem;
+  background-color: #fff;
+  color: #000;
+}

@@ -1,0 +1,23 @@
+.create__post {
+  display: grid;
+}
+
+.create__post-container {
+  width: var(--form-width);
+  margin-inline: auto;
+}
+
+.create__post-container h1 {
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, var(--dark-color), var(--login-color));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+@meida screen and (max-width: 1024px) {
+  .create__post-container {
+    width: 100%;
+  }
+}

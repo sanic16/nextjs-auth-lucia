@@ -1,0 +1,144 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+:root {
+  --primary-hue: 80;
+  --login-hue: 200;
+
+  --white-lightness: 96%;
+  --light-lightness: 88%;
+  --dark-lightness: 16%;
+  --black-lightness: 4%;
+
+  --primary-color: hsl(var(--primary-hue), 88%, 42%);
+  --login-color: hsl(var(--login-hue), 88%, 42%);
+
+  --white-color: hsl(0, 0%, var(--white-lightness));
+  --light-color: hsl(0, 0%, var(--light-lightness));
+  --dark-color: hsl(0, 0%, var(--dark-lightness));
+  --black-color: hsl(0, 0%, var(--black-lightness));
+  --red-color: hsl(350, 88%, 42%);
+
+  --color-bg: hwb(240 95% 0%);
+
+  --container-lg-width: 84%;
+  --container-sm-width: 92%;
+  --form-width: 50%;
+
+  --border-radius-1: 0.25rem;
+  --border-radius-2: 0.5rem;
+  --border-radius-3: 1rem;
+  --border-radius-4: 2rem;
+
+  --transition: all 300ms ease;
+}
+
+body {
+  font-size: 0.9rem;
+  color: var(--dark-color);
+  line-height: 1.1;
+  background-color: var(--color-bg);
+}
+
+a {
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: 0.9rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-1);
+  resize: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 1.9rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+section {
+  margin-top: 6rem;
+}
+
+.container {
+  width: var(--container-lg-width);
+  margin-inline: auto;
+}
+
+.btn {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-2);
+  background-color: var(--white-color);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn.primary {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.btn.category {
+  background-color: var(--color-bg);
+  color: var(--primary-color);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.btn.danger {
+  background-color: var(--red-color);
+  color: var(--white-color);
+}
+
+.btn.sm {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.7rem;
+  font-weight: 400;
+}
+
+.btn:hover {
+  background-color: var(--dark-color);
+  color: var(--white-color);
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: var(--container-sm-width);
+  }
+}
