@@ -2,12 +2,13 @@ import Link from "next/link";
 import type { Post } from "@prisma/client";
 import Author from "../Author/Author";
 import "./post.css";
+import dynamic from "next/dynamic";
+
+const Description = dynamic(() => import("../Description/Description"), {
+  ssr: false,
+});
 
 const Post = ({ post }: { post: Post }) => {
-  const reducedDescription =
-    post.description.length > 100
-      ? post.description.slice(0, 100) + "..."
-      : post.description;
   const reducedTitle =
     post.title.length > 50 ? post.title.slice(0, 50) + "..." : post.title;
   return (
@@ -21,7 +22,7 @@ const Post = ({ post }: { post: Post }) => {
         </Link>
       </div>
       <div className="body">
-        <p dangerouslySetInnerHTML={{ __html: reducedDescription }} />
+        <Description description={post.description} />
         <div className="info">
           <Author authorId={post.userId} createdAt={post.createdAt} />
           <Link href={`/posts/categories/${post.category}`}>

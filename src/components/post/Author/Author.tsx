@@ -3,6 +3,7 @@ import type { User } from "@prisma/client";
 import "./author.css";
 import { defaultAvatar } from "@/data/contants";
 import prisma from "@/lib/prisma";
+import Image from "next/image";
 
 const Author = async ({
   authorId,
@@ -24,7 +25,11 @@ const Author = async ({
     <div className="author">
       <Link href={`/posts/authors/${creator!.id}`}>
         <div className="author__thumbnail">
-          <img src={creator!.avatar || defaultAvatar} alt={creator!.username} />
+          <Image
+            src={creator!.avatar || defaultAvatar}
+            alt={creator!.username}
+            fill
+          />
         </div>
         <div className="author__info">
           <small>{reducedUsername}</small>
