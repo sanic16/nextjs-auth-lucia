@@ -41,6 +41,7 @@ const Slideshow = ({
       interval.current = setInterval(() => {
         nextSlide();
       }, 10000);
+      setCurrentSlide(0);
     } else {
       clearInterval(interval.current);
     }
