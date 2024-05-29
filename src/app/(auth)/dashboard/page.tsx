@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 import React from "react";
 import classes from "./page.module.css";
 import Link from "next/link";
+import { deletePostAction } from "@/actions/post-actions";
+import StatusButton from "@/components/buttons/StatusButton/StatusButton";
 
 export default async function page() {
   const result = await verifyAuth();
@@ -47,7 +49,13 @@ export default async function page() {
                 Ver Publicación
               </Link>
               <button className="btn sm white">Editar</button>
-              <button className="btn sm danger">Eliminar</button>
+              <form action={deletePostAction.bind(null, post.id)}>
+                <StatusButton
+                  currentStatus="Eliminar"
+                  pendingText="Eliminando..."
+                  className="btn sm danger"
+                />
+              </form>
             </div>
           </div>
         ))}

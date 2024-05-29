@@ -36,3 +36,12 @@ export const uploadObject = (
 
   return s3.send(new PutObjectCommand(uploadParams));
 };
+
+export const deleteObject = (fileName: string) => {
+  const deleteParams = {
+    Bucket: bucketName,
+    Key: fileName,
+  };
+
+  return s3.send(new DeleteObjectCommand(deleteParams));
+};

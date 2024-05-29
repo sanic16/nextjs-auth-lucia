@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { v4 as uuid } from "uuid";
 
 import { categories } from "@/data/categories";
-import { uploadObject } from "@/utils/aws";
+import { deleteObject, uploadObject } from "@/utils/aws";
 import { revalidatePath } from "next/cache";
 
 const categoriesIds = categories.map((category) => category.id);
@@ -71,4 +71,18 @@ export async function createPostAction(
 
   revalidatePath("/");
   return redirect("/");
+}
+
+export async function deletePostAction(postId: string) {
+  try {
+    await prisma.post.delete({
+      where: {
+        id: postId,
+      },
+    });
+  } catch (error) {
+    throw new Error("Error al eliminar la publicación");
+  }
+
+  revalidatePath("/", "layout");
 }
