@@ -4,6 +4,7 @@ import Link from "next/link";
 import "./signIn.css";
 import { useFormState } from "react-dom";
 import { signin } from "@/actions/auth-actions";
+import StatusButton from "../buttons/StatusButton/StatusButton";
 
 const initialState: { errors: SignInErrors } = {
   errors: {},
@@ -37,7 +38,11 @@ const SignIn = () => {
             autoFocus
           />
           <input type="password" placeholder="Contraseña" name="password" />
-          <button className="btn primary">Iniciar Sesión</button>
+          <StatusButton
+            currentStatus="Iniciar Sesión"
+            pendingText="Iniciando Sesión..."
+            className="btn primary"
+          />
         </form>
         <small>
           ¿No tienes una cuenta?{" "}

@@ -16,7 +16,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-@meida screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .create__post-container {
     width: 100%;
   }

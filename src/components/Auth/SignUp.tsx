@@ -4,6 +4,7 @@ import "./signUp.css";
 
 import { useFormState } from "react-dom";
 import { signup } from "@/actions/auth-actions";
+import StatusButton from "../buttons/StatusButton/StatusButton";
 
 const initialState: { errors: SignUpErrors } = {
   errors: {},
@@ -43,9 +44,11 @@ const SignUp = () => {
             placeholder="Confirmar Contraseña"
             name="password2"
           />
-          <button type="submit" className="btn primary">
-            Registrarse
-          </button>
+          <StatusButton
+            currentStatus="Registrarse"
+            pendingText="Registrando..."
+            className="btn primary"
+          />
         </form>
         <small>
           ¿Ya tienes una cuenta?{" "}

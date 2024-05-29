@@ -8,12 +8,12 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section>
+    <>
       <Suspense fallback={<div>Loading...</div>}>
         <Header />
       </Suspense>
       <main>{children}</main>
       <Footer />
-    </section>
+    </>
   );
 }

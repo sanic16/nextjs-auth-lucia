@@ -10,7 +10,11 @@ export default async function page() {
   if (!result.user) {
     return redirect("/auth?mode=login");
   }
-  const posts = await prisma.post.findMany();
+  const posts = await prisma.post.findMany({
+    where: {
+      userId: result.user.id,
+    },
+  });
   return (
     <section className={classes.dashboard}>
       <h1>Mis publicaciones</h1>
