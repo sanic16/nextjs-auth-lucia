@@ -3,6 +3,7 @@ import React from "react";
 import classes from "./page.module.css";
 import prisma from "@/lib/prisma";
 import Link from "next/link";
+import Slideshow from "@/components/Slideshow/Slideshow";
 
 export default async function page({
   searchParams,
@@ -22,8 +23,11 @@ export default async function page({
     skip: (numPage - 1) * 8,
   });
 
+  const images = postsPage.map((post) => post.thumbnail);
+
   return (
     <section className={classes.home__posts}>
+      <Slideshow images={images} />
       <Posts posts={postsPage} />
       <div className={classes.home__pagination}>
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
