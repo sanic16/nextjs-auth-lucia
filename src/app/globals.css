@@ -145,8 +145,22 @@ section {
   color: var(--white-color);
 }
 
+.btn.disabled {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  cursor: not-allowed;
+}
+
+.btn.disabled:hover {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
 @media screen and (max-width: 1024px) {
   .container {
+    width: var(--container-sm-width);
+  }
+  main {
     width: var(--container-sm-width);
   }
 }

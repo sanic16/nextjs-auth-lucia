@@ -14,7 +14,9 @@ const StatusButton = ({
 
   return (
     <button
-      className={className ? `${className}` : "auth__btn"}
+      className={`${className ? `${className}` : "auth__btn"} ${
+        status.pending && "disabled"
+      }`}
       type="submit"
       disabled={status.pending}
     >

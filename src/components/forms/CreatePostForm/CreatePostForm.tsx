@@ -9,6 +9,7 @@ import { modules, formats } from "../../../utils/quill-formats";
 import "./createPostForm.css";
 import { useFormState } from "react-dom";
 import { createPostAction } from "@/actions/post-actions";
+import StatusButton from "@/components/buttons/StatusButton/StatusButton";
 
 const CreatePostForm = ({ userId }: { userId: string }) => {
   const [thumbnail, setThumbnail] = useState<File | null>(null);
@@ -57,9 +58,11 @@ const CreatePostForm = ({ userId }: { userId: string }) => {
           )}
         </div>
       </div>
-      <button type="submit" className="btn primary">
-        Crear Post
-      </button>
+      <StatusButton
+        currentStatus="Crear Post"
+        pendingText="Creando Post..."
+        className="btn primary"
+      />
     </form>
   );
 };
