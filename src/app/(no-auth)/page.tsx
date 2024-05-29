@@ -21,13 +21,18 @@ export default async function page({
   const postsPage = await prisma.post.findMany({
     take: 8,
     skip: (numPage - 1) * 8,
+    include: {
+      user: {
+        select: {
+          username: true,
+        },
+      },
+    },
   });
-
-  const images = postsPage.map((post) => post.thumbnail);
 
   return (
     <section className={classes.home__posts}>
-      <Slideshow images={images} />
+      <Slideshow posts={postsPage} />
       <Posts posts={postsPage} />
       <div className={classes.home__pagination}>
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
