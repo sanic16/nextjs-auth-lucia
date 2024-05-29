@@ -1,6 +1,6 @@
 .footer {
   margin-top: 6rem;
-  padding: 6rem;
+  padding-top: 6rem;
   background-color: var(--primary-color);
 }
 
@@ -9,9 +9,16 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   row-gap: 1rem;
   place-items: center;
-  /* padding-bottom: 2rem; */
+  padding-bottom: 2rem;
 }
 
 .copyright {
   color: #fff;
+  font-size: 0.8rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-block: 0.7rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
 }

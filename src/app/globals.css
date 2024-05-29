@@ -12,10 +12,10 @@
   --primary-hue: 80;
   --login-hue: 200;
 
-  --white-lightness: 96%;
-  --light-lightness: 88%;
-  --dark-lightness: 16%;
-  --black-lightness: 4%;
+  --white-lightness: 4%;
+  --light-lightness: 16%;
+  --dark-lightness: 88%;
+  --black-lightness: 94%;
 
   --primary-color: hsl(var(--primary-hue), 88%, 42%);
   --login-color: hsl(var(--login-hue), 88%, 42%);
@@ -43,8 +43,8 @@
 body {
   font-size: 0.9rem;
   color: var(--dark-color);
+  background-color: var(--white-color);
   line-height: 1.1;
-  background-color: var(--color-bg);
 }
 
 main {
