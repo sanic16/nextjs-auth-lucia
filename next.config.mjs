@@ -7,6 +7,12 @@ const nextConfig = {
                 hostname: 'nextjs-blog-gt.s3.amazonaws.com',
                 pathname: '/defaults/*',
                 port: ''
+            },
+            {
+                protocol: 'https',
+                hostname: 'nextjs-blog-gt.s3.amazonaws.com',
+                pathname: '/public/**/*',
+                port: ''
             }
         ]
     }

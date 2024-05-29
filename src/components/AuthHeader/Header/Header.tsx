@@ -25,6 +25,9 @@ const Header = () => {
         </Link>
         <ul className={`${isOpen ? "show" : ""} nav__menu`}>
           <li>
+            <Link href={"/dashboard"}>Dashboard</Link>
+          </li>
+          <li>
             <Link href={"/profile"}>Perfil</Link>
           </li>
           <li>
@@ -32,7 +35,10 @@ const Header = () => {
           </li>
           <li>
             <form action={logout}>
-              <StatusButton />
+              <StatusButton
+                currentStatus="Cerrar Sesión"
+                pendingText="Cerrando Sesión..."
+              />
             </form>
           </li>
         </ul>

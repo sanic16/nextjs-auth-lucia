@@ -1,5 +1,6 @@
 import SignIn from "@/components/Auth/SignIn";
 import SignUp from "@/components/Auth/SignUp";
+import { Suspense } from "react";
 
 export default function page({
   searchParams,

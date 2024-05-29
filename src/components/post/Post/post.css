@@ -1,0 +1,39 @@
+.post {
+  max-width: 250px;
+  background-color: var(--light-color);
+  padding: 1rem;
+  border-radius: var(--border-radius-3);
+  box-shadow: 0 0.5rem 1rem hsla(0, 5%, var(--dark-lightness), 0.5);
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post:hover {
+  box-shadow: 0 0.5rem 1rem hsla(0, 5%, var(--dark-lightness), 0.7);
+}
+
+.post a {
+  color: var(--dark-color);
+}
+
+.thumbnail {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--border-radius-3);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.header h4 {
+  margin-bottom: 1rem;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}

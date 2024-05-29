@@ -1,18 +1,18 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
 import React from "react";
-import "./authors.css";
 import Image from "next/image";
+import classes from "./authors.module.css";
 
 export default async function page() {
   const authors = await prisma.user.findMany();
   return (
     <section>
-      <div className="authors">
+      <div className={classes.authors}>
         {authors.map((author) => (
-          <div key={author.id} className="author">
+          <div key={author.id} className={classes.author}>
             <Link href={`/posts/authors/${author.id}`}>
-              <div className="avatar">
+              <div className={classes.avatar}>
                 <Image
                   src={
                     author.avatar ||
@@ -22,7 +22,7 @@ export default async function page() {
                   fill
                 />
               </div>
-              <div className="info">
+              <div className={classes.info}>
                 <h5>{author.username}</h5>
                 <p>Posts: {author.numberOfPosts}</p>
                 <p>

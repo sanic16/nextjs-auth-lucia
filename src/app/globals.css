@@ -47,6 +47,13 @@ body {
   background-color: var(--color-bg);
 }
 
+main {
+  padding-top: 5rem;
+  width: var(--container-lg-width);
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
 a {
   text-decoration: none;
   transition: var(--transition);
@@ -90,7 +97,8 @@ h4 {
 }
 
 section {
-  margin-top: 6rem;
+  padding: 2rem 0;
+  min-height: calc(100vh - 5rem -6rem);
 }
 
 .container {

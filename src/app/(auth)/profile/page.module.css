@@ -1,0 +1,17 @@
+.profile {
+  width: var(--form-width);
+  margin-inline: auto;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.profile__info {
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .profile {
+    width: 100%;
+  }
+}

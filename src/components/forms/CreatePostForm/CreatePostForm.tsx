@@ -10,7 +10,7 @@ import "./createPostForm.css";
 import { useFormState } from "react-dom";
 import { createPostAction } from "@/actions/post-actions";
 
-const CreatePostForm = () => {
+const CreatePostForm = ({ userId }: { userId: string }) => {
   const [thumbnail, setThumbnail] = useState<File | null>(null);
   const [description, setDescription] = useState("");
   const handleThumbnail = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +23,7 @@ const CreatePostForm = () => {
     errors: {},
   };
   const [formState, formAction] = useFormState(
-    createPostAction.bind(null, description),
+    createPostAction.bind(null, description, userId),
     initialState
   );
   return (

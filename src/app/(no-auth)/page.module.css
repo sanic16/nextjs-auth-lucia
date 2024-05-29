@@ -1,0 +1,3 @@
+.home__posts {
+  min-height: calc(100vh - 5rem - 6rem);
+}
