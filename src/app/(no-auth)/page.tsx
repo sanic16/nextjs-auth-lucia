@@ -30,9 +30,23 @@ export default async function page({
     },
   });
 
+  const lastPosts = await prisma.post.findMany({
+    take: 6,
+    orderBy: {
+      createdAt: "desc",
+    },
+    include: {
+      user: {
+        select: {
+          username: true,
+        },
+      },
+    },
+  });
+
   return (
     <section className={classes.home__posts}>
-      <Slideshow posts={postsPage} />
+      <Slideshow posts={lastPosts} />
       <Posts posts={postsPage} />
       <div className={classes.home__pagination}>
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
