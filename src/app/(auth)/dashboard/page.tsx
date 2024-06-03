@@ -6,6 +6,7 @@ import classes from "./page.module.css";
 import Link from "next/link";
 import { deletePostAction } from "@/actions/post-actions";
 import StatusButton from "@/components/buttons/StatusButton/StatusButton";
+import Image from "next/image";
 
 export default async function page() {
   const result = await verifyAuth();
@@ -26,7 +27,7 @@ export default async function page() {
             <div className={classes.info}>
               <Link href={`/post/${post.id}`}>
                 <div className={classes.thumbnail}>
-                  <img src={post.thumbnail} alt={post.title} />
+                  <Image src={post.thumbnail} alt={post.title} fill />
                 </div>
                 <div className={classes.details}>
                   <h5>{post.title}</h5>

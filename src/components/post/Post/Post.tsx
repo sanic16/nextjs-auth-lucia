@@ -3,6 +3,7 @@ import type { Post } from "@prisma/client";
 import Author from "../Author/Author";
 import "./post.css";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const Description = dynamic(() => import("../Description/Description"), {
   ssr: false,
@@ -16,7 +17,7 @@ const Post = ({ post }: { post: Post }) => {
       <div className="header">
         <Link href={`/post/${post.id}`}>
           <div className="thumbnail">
-            <img src={post.thumbnail} alt={post.title} />
+            <Image src={post.thumbnail} alt={post.title} fill />
           </div>
           <h4>{reducedTitle}</h4>
         </Link>

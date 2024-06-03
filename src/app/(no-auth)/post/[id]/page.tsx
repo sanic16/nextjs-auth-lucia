@@ -3,6 +3,7 @@ import classes from "./page.module.css";
 import Author from "@/components/post/Author/Author";
 import prisma from "@/lib/prisma";
 import { redirect } from "next/navigation";
+import Image from "next/image";
 export default async function page({
   params,
 }: {
@@ -27,7 +28,7 @@ export default async function page({
       <div className={classes.post__body}>
         <h2>{post.title}</h2>
         <div className={classes.thumbnail}>
-          <img src={post.thumbnail} alt={post.title} />
+          <Image src={post.thumbnail} alt={post.title} fill />
         </div>
         <div
           className={classes.content}

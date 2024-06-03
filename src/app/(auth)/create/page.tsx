@@ -1,8 +1,15 @@
 import React from "react";
-import CreatePostForm from "../../../components/forms/CreatePostForm/CreatePostForm";
 import "./createPage.css";
 import { verifyAuth } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import dynamic from "next/dynamic";
+
+const CreatePostForm = dynamic(
+  () => import("@/components/forms/CreatePostForm/CreatePostForm"),
+  {
+    ssr: false,
+  }
+);
 
 export default async function CreatePage() {
   const result = await verifyAuth();

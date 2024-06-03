@@ -15,6 +15,7 @@
   aspect-ratio: 16/13;
   border-radius: var(--border-radius-2);
   overflow: hidden;
+  position: relative;
 }
 
 .quill__editor {

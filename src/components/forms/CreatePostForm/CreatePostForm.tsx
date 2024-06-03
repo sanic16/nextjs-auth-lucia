@@ -1,27 +1,34 @@
 "use client";
 
-import "react-quill/dist/quill.snow.css";
-import ReactQuill from "react-quill";
 import React, { useState } from "react";
 import { categories } from "../../../data/categories";
-import { modules, formats } from "../../../utils/quill-formats";
 
 import "./createPostForm.css";
 import { useFormState } from "react-dom";
 import { createPostAction } from "@/actions/post-actions";
 import StatusButton from "@/components/buttons/StatusButton/StatusButton";
+import ReactQuillEditor from "../ReactQuillEditor/ReactQuillEditor";
+import Image from "next/image";
 
 const CreatePostForm = ({ userId }: { userId: string }) => {
   const [thumbnail, setThumbnail] = useState<File | null>(null);
   const [description, setDescription] = useState("");
-  const handleThumbnail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files;
-    if (file) {
-      setThumbnail(file[0]);
-    }
-  };
+  let handleThumbnail;
+  if (typeof window !== "undefined") {
+    handleThumbnail = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files;
+      if (file) {
+        setThumbnail(file[0]);
+      }
+    };
+  } else {
+    handleThumbnail = () => {};
+  }
   const initialState: { errors: PostErrors } = {
     errors: {},
+  };
+  const changeDescription = (value: string) => {
+    setDescription(value);
   };
   const [formState, formAction] = useFormState(
     createPostAction.bind(null, description, userId),
@@ -37,13 +44,9 @@ const CreatePostForm = ({ userId }: { userId: string }) => {
           </option>
         ))}
       </select>
-      <ReactQuill
-        modules={modules}
-        formats={formats}
-        placeholder="Escribe algo increíble..."
-        className="quill__editor"
-        value={description}
-        onChange={setDescription}
+      <ReactQuillEditor
+        description={description}
+        setDescription={changeDescription}
       />
       <div className="post__file">
         <input
@@ -54,7 +57,7 @@ const CreatePostForm = ({ userId }: { userId: string }) => {
         />
         <div className="post__thumbnail">
           {thumbnail && (
-            <img src={URL.createObjectURL(thumbnail)} alt="Thumbnail" />
+            <Image src={URL.createObjectURL(thumbnail)} alt="Thumbnail" fill />
           )}
         </div>
       </div>

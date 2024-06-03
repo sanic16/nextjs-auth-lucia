@@ -59,6 +59,7 @@
   aspect-ratio: 1/1;
   border-radius: var(--border-radius-1);
   overflow: hidden;
+  position: relative;
 }
 
 .actions {

@@ -10,7 +10,7 @@
 
 .author {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: column;
   gap: 0.5rem;
 }
@@ -23,6 +23,7 @@
 .thumbnail {
   width: 100%;
   aspect-ratio: 16/9;
+  position: relative;
 }
 
 .content {

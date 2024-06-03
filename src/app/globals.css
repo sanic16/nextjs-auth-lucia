@@ -98,7 +98,7 @@ h4 {
 
 section {
   padding: 2rem 0;
-  min-height: calc(100vh - 5rem -6rem);
+  min-height: calc(100vh - 5rem - 6rem);
 }
 
 .container {
