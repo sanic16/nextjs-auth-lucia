@@ -9,12 +9,12 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id String @id @default(uuid())
+  id String @id @default(auto()) @map("_id") @db.ObjectId
   username String @unique 
   email String @unique
   password String
@@ -23,7 +23,6 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   sessions Session[]
-  snippets Snippet[]
   posts Post[]
   numberOfPosts Int @default(0)
 }
@@ -34,32 +33,22 @@ enum Role {
 }
 
 model Session {
-  id String @id @default(uuid())
-  userId String
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id String @id @map("_id") @db.String
+  userId String @db.ObjectId
+  user User @relation(fields: [userId], references: [id])
   expiresAt DateTime
 }
 
 model Post {
-  id String @id @default(cuid())
+  id String @id @default(auto()) @map("_id") @db.ObjectId
   title String 
-  description String @db.Text
+  description String
   thumbnail String 
-  userId String
+  userId String @db.ObjectId
   category String
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt  
 }
 
-model Snippet {
-  id String @id @default(cuid())
-  title String
-  code String
-  language String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 
-  userId String
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
